@@ -3,13 +3,13 @@
 
 ## Prerequisites
 - Please follow requirements from [TubeDETR](https://github.com/antoyang/TubeDETR), and add packages as you need them in the code such as `pims`, `seaborn`, etc.
-- Please clone the official [VQ2D](https://github.com/EGO4D/episodic-memory/tree/main/VQ2D) repo as it contains eval metrics (maybe outside this repo --  not sure if this matters)
+- Please clone the official [VQ2D](https://github.com/EGO4D/episodic-memory/tree/main/VQ2D) repo as it contains eval metrics and preprocessing scripts (maybe outside this repo --  not sure if this matters)
 - Download MDETR weights of [R101](https://zenodo.org/record/4721981/files/pretrained_resnet101_checkpoint.pth?download=1) taken from [MDETR repo](https://github.com/ashkamath/mdetr?tab=readme-ov-file#pre-training). This is used for initialization.
 
 ## Dataset (VQ2D)
 
 **Note**
-- The dataset may have changed, so please look at the official instructions [here](https://github.com/ashkamath/mdetr?tab=readme-ov-file#pre-training). Below I provided the commands I used quite a while ago.
+- The dataset may have changed, so please look at the official instructions in the [VQ2D](https://github.com/EGO4D/episodic-memory/tree/main/VQ2D) repo. Below I provided the commands I used quite a while ago.
 - Also, after getting `clips_train` and `clips_test`, I post-process them to a shorter side size of 320 to obtain `clips_train_shorter_side_320` and `clips_test_shorter_side_320`. This helps with faster data loading and not overloading the memory. (I cannot seem to locate the command for this)
 
 
