@@ -1,0 +1,5 @@
+{
+  "combine_datasets": ["nlq"],
+  "combine_datasets_val": ["nlq"],
+  "nlq_data_path" : "/private/home/raghavgoyal/data/nlq_root/"
+}

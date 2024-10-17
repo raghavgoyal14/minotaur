@@ -1,0 +1,5 @@
+{
+  "combine_datasets": ["vq2d"],
+  "combine_datasets_val": ["vq2d"],
+  "vq2d_data_path" : "/private/home/raghavgoyal/data/vq2d_root/data"
+}
