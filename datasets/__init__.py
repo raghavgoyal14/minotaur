@@ -14,8 +14,8 @@
 
 # unified
 # from .vq2d_unified import build as build_vq2d_unified
-# from .nlq_unified import build as build_nlq_unified
-# from .mq_unified import build as build_mq_unified
+from .nlq_unified import build as build_nlq_unified
+from .mq_unified import build as build_mq_unified
 from .vq2d_unified import build as build_vq2d_unified
 
 
@@ -46,10 +46,10 @@ def build_dataset_unified(dataset_file: str, image_set: str, args):
     #     return build_vidstg(image_set, args)
     if dataset_file == "vq2d":
         return build_vq2d_unified(image_set, args)
-    # if dataset_file == "nlq":
-    #     return build_nlq_unified(image_set, args)
-    # if dataset_file == "mq":
-    #     return build_mq_unified(image_set, args)
+    if dataset_file == "nlq":
+        return build_nlq_unified(image_set, args)
+    if dataset_file == "mq":
+        return build_mq_unified(image_set, args)
     # if dataset_file == "mq_slowfast_features":
     #     return build_mq_slowfast_features(image_set, args)
     # if dataset_file == "mq_w_slowfast_features":

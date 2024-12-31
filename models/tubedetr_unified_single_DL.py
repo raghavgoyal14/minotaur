@@ -772,12 +772,12 @@ def build_tubedetr(args, backbone, transformer):
     pass
 
     # mq-specific
-    # if args.model.mq.use_segment_type_classification:
-    #     losses += ["segment_type"]
-    #     weight_dict["loss_segment_type"] = args.segment_type_loss_coef
-    # if args.model.mq.use_frame_action_classification:
-    #     losses += ["frame_action_classification"]
-    #     weight_dict["loss_frame_action_classification"] = args.frame_action_classification_loss_coef
+    if args.model.mq.use_segment_type_classification:
+        losses += ["segment_type"]
+        weight_dict["loss_segment_type"] = args.segment_type_loss_coef
+    if args.model.mq.use_frame_action_classification:
+        losses += ["frame_action_classification"]
+        weight_dict["loss_frame_action_classification"] = args.frame_action_classification_loss_coef
 
     criterion = SetCriterion(
         args=args,

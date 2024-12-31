@@ -28,8 +28,8 @@ from datasets import build_dataset_unified
 
 # from datasets.vq2d_eval import VQ2DEvaluator
 from datasets.vq2d_orig_eval import VQ2DOrigEvaluator
-# from datasets.nlq_orig_eval import NLQOrigEvaluator
-# from datasets.mq_orig_eval import MQOrigEvaluator
+from datasets.nlq_orig_eval import NLQOrigEvaluator
+from datasets.mq_orig_eval import MQOrigEvaluator
 
 from models import build_model_unified
 # from engine_unified_train import train_one_epoch
@@ -38,8 +38,8 @@ from engine_unified_train_single_DL import train_one_epoch
 from models.postprocessors import build_postprocessors
 from torch.distributed.elastic.multiprocessing.errors import record
 
-# from engine_unified_eval_mq import evaluate as evaluate_mq
-# from engine_unified_eval_nlq import evaluate as evaluate_nlq
+from engine_unified_eval_mq import evaluate as evaluate_mq
+from engine_unified_eval_nlq import evaluate as evaluate_nlq
 from engine_unified_eval_vq2d import evaluate as evaluate_vq2d
 
 # torch.autograd.set_detect_anomaly(True)
@@ -70,24 +70,24 @@ def evaluate(
     device: torch.device,
     args
 ):
-    # if task == "mq":
-    #     evaluate_mq(
-    #         model=model,
-    #         postprocessors=postprocessors,
-    #         data_loader=data_loader,
-    #         evaluator_list=evaluator_list,
-    #         device=device,
-    #         args=args,
-    #     )
-    # elif task == "nlq":
-    #     evaluate_nlq(
-    #         model=model,
-    #         postprocessors=postprocessors,
-    #         data_loader=data_loader,
-    #         evaluator_list=evaluator_list,
-    #         device=device,
-    #         args=args,
-    #     )
+    if task == "mq":
+        evaluate_mq(
+            model=model,
+            postprocessors=postprocessors,
+            data_loader=data_loader,
+            evaluator_list=evaluator_list,
+            device=device,
+            args=args,
+        )
+    elif task == "nlq":
+        evaluate_nlq(
+            model=model,
+            postprocessors=postprocessors,
+            data_loader=data_loader,
+            evaluator_list=evaluator_list,
+            device=device,
+            args=args,
+        )
     if task == "vq2d":
         evaluate_vq2d(
             model=model,
